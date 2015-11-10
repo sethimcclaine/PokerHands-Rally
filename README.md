@@ -4,6 +4,6 @@ To run code:
 
 To run tests:
 
-`node RallyDevTests.js`
+`node Tests.js`
 
 Changing number of players and their names can be done inside of `RallyDev.js`

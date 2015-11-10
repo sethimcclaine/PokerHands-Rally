@@ -49,7 +49,7 @@ module.exports = function () {
      * @return {bool}
      */
     var isRoyalFlush = function() {
-        if(isStraightFlush() && getHighCard === 1) {
+        if(isStraightFlush() && getHighCard().number === 1) {
             return true;
         }
         return false;
@@ -122,12 +122,19 @@ module.exports = function () {
      */
     var isStraight = function(){
         numberKeys.sort(function(a, b){return a-b});
-        if ((//(parseInt(numberKeys[0]) === 1 && parseInt(numberKeys[1]) === 10) ||
-            parseInt(numberKeys[0]) + 1 === parseInt(numberKeys[1])) &&
-            parseInt(numberKeys[1]) + 1 === parseInt(numberKeys[2]) &&
+        /*If statement written with sub statements for easier comprehension/readability*/
+        
+        //if the 2,3,4,5 cards are all incrimenting by one
+        if (parseInt(numberKeys[1]) + 1 === parseInt(numberKeys[2]) &&
             parseInt(numberKeys[2]) + 1 === parseInt(numberKeys[3]) &&
             parseInt(numberKeys[3]) + 1 === parseInt(numberKeys[4])) {
-            return true
+                if(parseInt(numberKeys[0]) === 1 && parseInt(numberKeys[4]) === 13 ) {
+                    //and if the 5th card is the king(13) and the first card is an ace (1)
+                    return true;
+                } else if (parseInt(numberKeys[1]) - 1 === parseInt(numberKeys[0])) {
+                    //or the second card - 1
+                    return true
+                }
         }
         return false;
     };
