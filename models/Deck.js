@@ -20,6 +20,13 @@ Array.prototype.shuffle = function() {
 
 var Card = require("./Card.js");
 
+/**
+ * Model to represent a deck of cards
+ * Available Public Functions
+ *  *drawCard()
+ *  *getRemainingCards()
+ *  *shuffle
+ */
 module.exports = function () {
     /**
      * Build the cards array (1-12 or each suit h,s,c,d)
@@ -39,12 +46,23 @@ module.exports = function () {
             j++;
         }
     }
+    /**
+     * Return the top card off the deck
+     * @return {obj} card
+     */
     this.drawCard = function() {
         return cards.pop();
     };
+    /**
+     * Return the remaining cards in the deck
+     * return {array} card objects
+     */
     this.getRemainingCards = function() {
         return cards;
     };
+    /**
+     * Shuffle the array of cards
+     */
     this.shuffle = function() {
         cards.shuffle();
     }

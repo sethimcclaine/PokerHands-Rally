@@ -1,3 +1,13 @@
+/**
+ * Model to represent a players hand
+ * Available Public Functions
+ *  *addCard(card)
+ *  *show()
+ *  *evaluate()
+ * @param {string} suit
+ * @param {int} number
+ */
+
 module.exports = function () {
     var cards = [],
         numbers = {},
